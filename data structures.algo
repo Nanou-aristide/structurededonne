@@ -1,0 +1,101 @@
+
+// Problème 1 : Somme des éléments 
+
+Algorithme SommeElementsDistincts
+Variables
+	ensemble1, ensemble2 : array of integer
+	i, j, n1, n2, somme : integer
+	estPresent : boolean
+Begin
+	// Exemple d'ensembles
+	ensemble1 <- [3, 1, 7, 9]
+	ensemble2 <- [2, 4, 1, 9, 3]
+	n1 <- length(ensemble1)
+	n2 <- length(ensemble2)
+	somme <- 0
+
+	// Ajouter les éléments uniques de ensemble1
+	for i from 0 to n1-1 do
+		estPresent <- false
+		for j from 0 to n2-1 do
+			if ensemble1[i] = ensemble2[j] then
+				estPresent <- true
+			end if
+		end for
+		if not estPresent then
+			somme <- somme + ensemble1[i]
+		end if
+	end for
+
+	// Ajouter les éléments 
+	for i from 0 to n2-1 do
+		estPresent <- false
+		for j from 0 to n1-1 do
+			if ensemble2[i] = ensemble1[j] then
+				estPresent <- true
+			end if
+		end for
+		if not estPresent then
+			somme <- somme + ensemble2[i]
+		end if
+	end for
+
+	read "Somme des éléments distincts : ", somme
+
+
+
+End
+
+
+
+// Problème 2 : Produit en points 
+
+
+	i : integer
+Begin
+	ps <- 0
+	for i from 0 to n-1 do
+		ps <- ps + v1[i] * v2[i]
+	end for
+
+	n, i : integer
+	ps : real
+	v1, v2 : array of real
+Begin
+	
+	n <- 3
+	v1 <- [1, 2, 3]
+	v2 <- [4, -8, 4]
+	
+	if ps = 0 then
+		read "Les vecteurs sont orthogonaux."
+	else
+		read "Les vecteurs ne sont pas orthogonaux."
+	end if
+End
+
+
+	i : integer
+	ps : real
+Begin
+	ps <- 0
+	for i from 0 to n-1 do
+		ps <- ps + v1[i] * v2[i]
+	end for
+	return ps
+EndFunction
+
+	n : integer
+	ps : real
+	v1, v2 : array of real
+Begin
+	n <- 3
+	v1 <- [1, 2, 3]
+	v2 <- [4, -8, 4]
+	ps <- dot_product_f(v1, v2, n)
+	if ps = 0 then
+		read"Les vecteurs sont orthogonaux."
+	else
+		read "Les vecteurs ne sont pas orthogonaux."
+	end if
+End
